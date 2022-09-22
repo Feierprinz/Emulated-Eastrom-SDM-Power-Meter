@@ -1,4 +1,4 @@
-# Fake Eastron SDM
+# Emulated Eastron SDM
  An ESP8266 project to emulate an Eastron SDM power meter
 
  ## Background
