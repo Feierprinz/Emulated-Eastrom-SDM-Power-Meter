@@ -7,7 +7,7 @@
  
  This is normally achieved by connecting an Eastron SDM230 power meter via modbus to the inverter's (Growatt MIN 3600TL-XE in my case) 2nd modbus port. Once installed the inverter acts as a master, polling the SDM230 slave device's input regisiters for data. If it detects that power is being exported to the grid, it limits the inverter's output power to maintain (approximately) zero export.
 
- I have a slightly more complex setup with a solar water heater diverter in the mix, this intercepts the unused power and uses it to heat my hot water tank. But once the talk is fully heated (usually around 2pm in the Summer) the power is exported to the grid - which I do not want. The real SDM230 power meter is not compatible with this process and half export before the solar diverter gets a chance to heat the water.
+ I have a slightly more complex setup with a solar water heater diverter in the mix, this intercepts the unused power and uses it to heat my hot water tank. But once the talk is fully heated (usually around 2pm in the Summer) the power is exported to the grid - which I do not want. The real SDM230 power meter is not compatible with this process and cuts export before the solar diverter gets a chance to heat the water.
 
  My solution for this is to emulate the Eastron SDM230 and maintain full control of when the inverter limits is power output.
 
