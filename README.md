@@ -65,3 +65,19 @@ My MQTT topic is the power value recorded by a 'Shelly EM' using a clamp meter c
 Once installed you can open the serial monitor within the Arduino IDE to see debug info.
 Experiment but setting the MQTT topic to something like test/power and publish the values that you want to test.
 Don't forget to enable export control using your inverter's GUI!
+
+## Development
+
+I initially setup a USB Modbus 485 adaptor and connected it to my laptop, I then sniffed the bus to see what messages the inverter was sending. This was the first one RTU frame:
+
+TX: 01 04 00 00 00 0E 71 CE
+
+Part of Data Package |  Description | Value
+----------------|-------------|-----------
+01 | Slave address | 0x01 (1)
+04 | Function code | 0x04 (4) - Read Input Registers
+00 00 | Starting address | Physical: 0x0000 (0) Logical: 0x0001 (1)
+00 0E | Quantity | 0x000E (14)
+71 CE | CRC | 0x71CE (29134)
+
+I then set out to build a device that could answer the request.
