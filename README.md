@@ -43,3 +43,25 @@ Vcc	  ---> 3.3V
 GND   ---> GND
 
 Then connect your MAX485 module's A/B terminals to the A/B terminals on your inverter using two wires from your sacrificial ethernet patch cable - A links to A, B links to B. In my case, on the Growatt MIN 3600TL-XE I had to use pins 5 and 6 which is the power meter modbus.
+
+## Building in Arduino IDE
+
+Before building and writing to your ESP8266, rename the file "private-h.sample" to "private.h" and move it into the Emulated-Eastron-SDM foder. Then edit it to reflect your WiFi and MQTT server details.
+
+## How it works
+
+Once compiled and running the ESP8266 will:
+
+- connect to your WiFi network
+- connect to your MQTT server
+- Listen for power values in Watts to on the MQTT topic you chose
+- Update the 'Active power Watts' input register number 4 with the values it gets from the MQTT topic
+
+My MQTT topic is the power value recorded by a 'Shelly EM' using a clamp meter connected to the main input power line. But you can use whatever source you like, or just manually publish the desired value to the MQTT server.
+
+
+## Hints
+
+Once installed you can open the serial monitor within the Arduino IDE to see debug info.
+Experiment but setting the MQTT topic to something like test/power and publish the values that you want to test.
+Don't forget to enable export control using your inverter's GUI!
