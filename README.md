@@ -31,10 +31,15 @@
 It's super easy. Connect the MAX485 module to your ESP8266 board:
 
 D2	  ---> DI
+
 D3	  ---> RO
+
 D0	  ---> RE
+
 D0	  ---> DE
+
 Vcc	  ---> 3.3V
+
 GND   ---> GND
 
 Then connect your MAX485 module's A/B terminals to the A/B terminals on your inverter using two wires from your sacrificial ethernet patch cable - A links to A, B links to B. In my case, on the Growatt MIN 3600TL-XE I had to use pins 5 and 6 which is the power meter modbus.
